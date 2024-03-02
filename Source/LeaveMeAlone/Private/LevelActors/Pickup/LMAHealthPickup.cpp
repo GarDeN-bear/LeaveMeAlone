@@ -1,6 +1,3 @@
-// LeaveMeAlone Game by Netologiya. All Rights Reserved.
-
-
 #include "LevelActors/Pickup/LMAHealthPickup.h"
 #include "Components/LMAHealthComponent.h"
 #include "Components/SphereComponent.h"
@@ -36,12 +33,6 @@ void ALMAHealthPickup::NotifyActorBeginOverlap(AActor* OtherActor)
 			PickupWasTaken();
 		}
 	}
-}
-
-void ALMAHealthPickup::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
 }
 
 bool ALMAHealthPickup::GivePickup(ALMADefaultCharacter* Character)

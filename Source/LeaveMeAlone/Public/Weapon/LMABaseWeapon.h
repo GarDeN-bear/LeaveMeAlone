@@ -1,5 +1,3 @@
-// LeaveMeAlone Game by Netologiya. All RightsReserved.
-
 #pragma once
 
 #include "CoreMinimal.h"
@@ -34,7 +32,6 @@ class LEAVEMEALONE_API ALMABaseWeapon : public AActor
 	GENERATED_BODY()
 	
 public:	
-	// Sets default values for this actor's properties
 	ALMABaseWeapon();
 
 	void Fire();
@@ -50,7 +47,6 @@ public:
 	FAmmoWeapon GetCurrentAmmoWeapon() const { return CurrentAmmoWeapon; }
 
 protected:
-	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Weapon")
@@ -84,10 +80,6 @@ protected:
 	void DecrementBullets();
 
 	void SpawnTrace(const FVector& TraceStart, const FVector& TraceEnd);
-
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
 
 private:
 	FTimerHandle FireTimerHandle;

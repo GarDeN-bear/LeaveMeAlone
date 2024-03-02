@@ -1,6 +1,3 @@
-// LeaveMeAlone Game by Netologiya. All Rights Reserved.
-
-
 #include "Components/LMAHealthComponent.h"
 
 ULMAHealthComponent::ULMAHealthComponent()

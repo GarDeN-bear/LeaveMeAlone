@@ -1,5 +1,3 @@
-// LeaveMeAlone Game by Netologiya. All Rights Reserved.
-
 #pragma once
 
 #include "CoreMinimal.h"
@@ -29,9 +27,6 @@ protected:
 	
 	virtual void BeginPlay() override;
 	virtual void NotifyActorBeginOverlap(AActor* OtherActor) override;
-
-public:	
-	virtual void Tick(float DeltaTime) override;
 
 private:
 	bool GivePickup(ALMADefaultCharacter* Character);

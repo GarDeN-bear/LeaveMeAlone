@@ -1,6 +1,3 @@
-// LeaveMeAlone Game by Netologiya. All Rights Reserved.
-
-
 #include "LevelActors/Damage/LMADamageActor.h"
 #include "Components/SphereComponent.h"
 #include "GameFramework/Character.h"

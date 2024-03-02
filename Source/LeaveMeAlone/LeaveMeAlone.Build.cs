@@ -1,4 +1,4 @@
-// LeaveMeAlone Game by Netologiya. All RightsReserved.
+
 
 using UnrealBuildTool;
 

@@ -1,41 +1,27 @@
-// LeaveMeAlone Game by Netologiya. All RightsReserved.
-
-
 #include "Components/LMAWeaponComponent.h"
 #include "GameFramework/Character.h"
 #include "Weapon/LMABaseWeapon.h"
 #include "Animations/LMAReloadFinishedAnimNotify.h"
 
-// Sets default values for this component's properties
 ULMAWeaponComponent::ULMAWeaponComponent()
 {
-	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
-	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
-
-	// ...
 }
 
 
-// Called when the game starts
 void ULMAWeaponComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
 	SpawnWeapon();
 	InitAnimNotify();
-
-	// ...
 	
 }
 
 
-// Called every frame
 void ULMAWeaponComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-
-	// ...
 }
 
 void ULMAWeaponComponent::SpawnWeapon()
@@ -43,7 +29,7 @@ void ULMAWeaponComponent::SpawnWeapon()
 	Weapon = GetWorld()->SpawnActor<ALMABaseWeapon>(WeaponClass);
 	if (Weapon)
 	{
-		const auto Character = Cast<ACharacter>(GetOwner());
+		ACharacter* const Character = Cast<ACharacter>(GetOwner());
 		if (Character)
 		{
 			FAttachmentTransformRules AttachmentRules(EAttachmentRule::SnapToTarget, false);
@@ -81,10 +67,10 @@ void ULMAWeaponComponent::InitAnimNotify()
 {
 	if (!ReloadMontage)
 		return;
-	const auto NotifiesEvents = ReloadMontage->Notifies;
+	const TArray<FAnimNotifyEvent> NotifiesEvents = ReloadMontage->Notifies;
 	for (auto NotifyEvent : NotifiesEvents)
 	{
-		auto ReloadFinish = Cast<ULMAReloadFinishedAnimNotify>(NotifyEvent.Notify);
+		ULMAReloadFinishedAnimNotify* ReloadFinish = Cast<ULMAReloadFinishedAnimNotify>(NotifyEvent.Notify);
 		if (ReloadFinish)
 		{
 			ReloadFinish->OnNotifyReloadFinished.AddUObject(this, &ULMAWeaponComponent::OnNotifyReloadFinished);
@@ -95,7 +81,7 @@ void ULMAWeaponComponent::InitAnimNotify()
 
 void ULMAWeaponComponent::OnNotifyReloadFinished(USkeletalMeshComponent* SkeletalMesh)
 {
-	const auto Character = Cast<ACharacter>(GetOwner());
+	ACharacter *const Character = Cast<ACharacter>(GetOwner());
 	if (Character->GetMesh() == SkeletalMesh)
 	{
 		AnimReloading = false;

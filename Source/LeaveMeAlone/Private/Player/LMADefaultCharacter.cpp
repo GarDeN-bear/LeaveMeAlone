@@ -1,5 +1,3 @@
-// LeaveMeAlone Game by Netologiya. All Rights Reserved.
-
 #include "Player/LMADefaultCharacter.h"
 #include "Camera/CameraComponent.h"
 #include "Components/DecalComponent.h"

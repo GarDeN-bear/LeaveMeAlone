@@ -1,6 +1,3 @@
-// LeaveMeAlone Game by Netologiya. All RightsReserved.
-
-
 #include "Enemy/LMAAIController.h"
 #include "Enemy/LMAEnemyCharacter.h"
 #include "Enemy/LMAEnemyStrongCharacter.h"

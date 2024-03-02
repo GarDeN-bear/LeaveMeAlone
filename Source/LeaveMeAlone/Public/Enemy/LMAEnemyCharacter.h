@@ -1,5 +1,3 @@
-// LeaveMeAlone Game by Netologiya. All RightsReserved.
-
 #pragma once
 
 #include "CoreMinimal.h"
@@ -15,7 +13,6 @@ class LEAVEMEALONE_API ALMAEnemyCharacter : public ACharacter
 	GENERATED_BODY()
 
 public:
-	// Sets default values for this character's properties
 	ALMAEnemyCharacter();
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components")
@@ -25,11 +22,6 @@ public:
 	UBehaviorTree* BehaviorTreeAsset;
 
 protected:
-	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
 
 };
